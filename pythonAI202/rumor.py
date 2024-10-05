@@ -15,7 +15,7 @@ def rumor(r0, k, n, d):
     days = np.array(days)
 
     for j in range(1, d+1):
-        print(f"Day: {days[j]} Spread: {spread[j]} Percentage: {(float)(spread[j]/n) * 100}")
+        print(f"Day: {days[j]} Spread: {spread[j]} Percentage: {(float)(spread[j]/n) * 100} %")
 
     plt.plot(days, spread)
     plt.grid(True)
