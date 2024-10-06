@@ -14,7 +14,6 @@ def SIR_Model(i0, p, w, d, k):
 
     weeks = [0]
 
-    # Loop to calculate S, I, R over time
     for t in range(1,w+1):
         r[t] = r[t-1] + (1/d) * i[t-1]
         i[t] = i[t-1] - (1/d) * i[t-1] + k * s[t-1] * i[t-1]
@@ -26,10 +25,8 @@ def SIR_Model(i0, p, w, d, k):
     for j in range(0, w + 1):
         print(f"Week: {weeks[j]} I: {i[j]} S: {s[j]} R: {r[j]}")
 
-    # Plotting the infected people over time
     plt.figure(figsize=(10,6))
 
-    # Plot for Infected People (I)
     plt.subplot(3, 1, 1)
     plt.plot(weeks, i, 'r-', label='Infected (I)')
     plt.grid(True)
@@ -37,21 +34,21 @@ def SIR_Model(i0, p, w, d, k):
     plt.xlabel('Weeks')
     plt.ylabel('Infected')
 
-    # Plot for Susceptible People (S)
+
     plt.subplot(3, 1, 2)
     plt.plot(weeks, s, 'b-', label='Susceptible (S)')
     plt.grid(True)
     plt.xlabel('Weeks')
     plt.ylabel('Susceptible')
 
-    # Plot for Recovered People (R)
+
     plt.subplot(3, 1, 3)
     plt.plot(weeks, r, 'g-', label='Removed (R)')
     plt.grid(True)
     plt.xlabel('Weeks')
     plt.ylabel('Removed')
 
-    # Adjust layout and save figure
+
     plt.tight_layout()
     plt.savefig('SIR_model.png')
     plt.show()
